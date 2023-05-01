@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "bfa1e83e-c01a-491e-a223-9c9b42a18640",
+		"name": "Youtube",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[GET] COMMENTS TO VIDEO",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/comments/video_id/video1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"comments",
+						"video_id",
+						"video1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[POST] CREATE COMMENT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNzI5MDI5LCJpYXQiOjE2ODI3MjcyMjksImp0aSI6ImY2OThhYTgyZTk1MjQwMzM5MzdkYmQxMWRlOGQ5NjY2IiwidXNlcl9pZCI6MX0.9y4MLY-4lvdA562t9fWr5xgMkWrZLtSfloWfAe50P4c",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "video_id",
+							"value": "video1",
+							"type": "default"
+						},
+						{
+							"key": "text",
+							"value": "comment for video1 from admin",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/comments/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"comments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[POST] GET JWT TOKEN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "qwer!234",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[PUT] UPDATE COMMENT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNzI5MDI5LCJpYXQiOjE2ODI3MjcyMjksImp0aSI6ImY2OThhYTgyZTk1MjQwMzM5MzdkYmQxMWRlOGQ5NjY2IiwidXNlcl9pZCI6MX0.9y4MLY-4lvdA562t9fWr5xgMkWrZLtSfloWfAe50P4c",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "video_id",
+							"value": "video1",
+							"type": "default"
+						},
+						{
+							"key": "text",
+							"value": "this is comment from admin for video1",
+							"type": "default"
+						},
+						{
+							"key": "likes",
+							"value": "100",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/comments/comment_id/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"comments",
+						"comment_id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[GET] REPLIES TO COMMENT",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNzI5MDI5LCJpYXQiOjE2ODI3MjcyMjksImp0aSI6ImY2OThhYTgyZTk1MjQwMzM5MzdkYmQxMWRlOGQ5NjY2IiwidXNlcl9pZCI6MX0.9y4MLY-4lvdA562t9fWr5xgMkWrZLtSfloWfAe50P4c",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/replies/comment_id/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"replies",
+						"comment_id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[POST] CREATE REPLY",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNzI5MDI5LCJpYXQiOjE2ODI3MjcyMjksImp0aSI6ImY2OThhYTgyZTk1MjQwMzM5MzdkYmQxMWRlOGQ5NjY2IiwidXNlcl9pZCI6MX0.9y4MLY-4lvdA562t9fWr5xgMkWrZLtSfloWfAe50P4c",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "comment",
+							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "text",
+							"value": "this is reply to comment 1 from admin",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/replies/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"replies",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
