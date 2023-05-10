@@ -31,7 +31,7 @@ class ReplyList(generics.GenericAPIView):
         else:
             return Response({
                 "status": 'success',
-                'replies': None
+                'replies': serializer.data
             })
 
     @permission_classes([IsAuthenticated])
